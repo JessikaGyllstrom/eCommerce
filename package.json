@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap": "^5.2.2",
     "create-index": "^2.6.0",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
