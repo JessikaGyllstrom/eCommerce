@@ -1,18 +1,14 @@
+import Head from "next/head";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
+import { request } from "../lib/datocms";
+import { Image } from "react-datocms";
 
-
-export default function Index() {
-    return (
-    <h1>INDEXPAGE</h1>
-    )
+function Index () {
+  return (
+    <div>
+      <h1>index</h1>
+    </div>
+  )
 }
-/*import dynamic from 'next/dynamic';
-
-import Blog, { getStaticProps } from '../components/blog';
-
-export default Blog;
-
-export {
-  getStaticProps
-}
-*/
-
+export default Index;

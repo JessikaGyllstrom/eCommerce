@@ -1,8 +1,5 @@
 import styles from '../styles/Navbar.module.css';
-import { HiMenu } from "react-icons/hi";
-import { IconContext } from "react-icons";  
-import { Index } from "../pages/index"
-import { productcard } from '../components/productcard';
+import Link from 'next/link';
 
 export default function Navbar() {
 
@@ -12,14 +9,9 @@ export default function Navbar() {
           <h1>eCommerce</h1>
         </div>
         <div>
-          <a href='/index'>Home</a>
-          <a href='/products'>Products</a>
-          <a href='/productcard'>Productcards</a>
-          <IconContext.Provider value={{ size: '20px' }} >
-          <div className={styles.icon}>
-          <HiMenu/>
-          </div>
-          </IconContext.Provider>  
+          <Link href='/'>Home</Link>
+          <Link href='/products'>Products</Link>
+          <Link href='/blog'>Blog</Link>
         </div>
       </div>
   );
