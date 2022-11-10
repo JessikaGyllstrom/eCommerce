@@ -35,34 +35,33 @@ export default function Items(props) {
     </div>
   );
 }
-const loaderProp =({ src}) => {
+const loaderProp =({ src }) => {
   return `${src}`;
 }
 const Itemtable = (props) => {
 const { data } = props;
-console.log(data.mainImage.responsiveImage.src)
 return (
   <div >
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div class="row">
+    <div style={{ display: "flex", justifyContent: "center", width: "100%"}}>
+      <div style={{ width: "40%"}}>
         <div class="col">
         </div>
-      <div className="card">
-      <Image
+      <div >
+      <Image style={{ layout: "fill"}}
           src={data.mainImage.responsiveImage.src}
           alt={data.mainImage.responsiveImage.src} 
-          height={200}   
-          width={200}  
+          height={300}   
+          width={300}  
           loader={loaderProp}/>
       </div>
       <div class="col">
-      <div class="card-body">
+      <div>
         <p className="card-text">{data.name}</p><span></span>
-        <p className="card-text">{data.price}</p>
+        <p className="card-text">Price: {data.price}</p>
         </div>
       </div>
     </div>
-  </div>
+    </div>
   </div>
   )
 }
