@@ -1,0 +1,12 @@
+
+$color-blue: #39653c;
+
+.bg-blue { background-color: $color-blue }
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    padding: 20;
+}
+.container {
+    display: flex;
+}

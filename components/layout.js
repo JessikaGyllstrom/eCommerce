@@ -1,7 +1,9 @@
 import { Navbar } from './navbar';
 import { Footer } from './footer';
+import { productlist } from '../pages/list';
+import { Roboto } from '@next/font/google';
 
-export default function Layout({ children }) {
+function Layout({ children }) {
   return (
     <>
       <Navbar />
@@ -10,3 +12,4 @@ export default function Layout({ children }) {
     </>
   )
 }
+export default Layout;
