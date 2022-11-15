@@ -1,6 +1,5 @@
 import { request } from "../lib/datocms";
 import Image from "next/image";
-import { useState } from "react";
 
 const HOMEPAGE_QUERY = `query  {
   allProducts {

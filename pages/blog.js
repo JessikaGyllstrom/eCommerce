@@ -1,5 +1,4 @@
 import { request } from "../lib/datocms";
-import Image from "next/image";
 
 const HOMEPAGE_QUERY = `query  {
     allBlogs {
@@ -32,11 +31,11 @@ export default function Blog(props) {
       <div className="blogcontainer">
     {posts.map((post, key) => (
             <div key={data.id} >
-      <h4>{post.title}</h4>
+      <h2>{post.title}</h2>
       <p>{post.article}</p>
       <p>Created at: {post._createdAt}</p>
       <p>Author: {JSON.stringify(author.name).replace(/"/g,"")}</p>
-
+      <a href="#" className="btn btn-dark">Read More</a>
       </div>
       
 )

@@ -101,7 +101,7 @@ body {
   transform: scale(1.05)
 }
 .blogcontainer {
-  padding: 5rem;
+  padding: 9rem;
   display: grid;
   gap: 4rem;
   overflow: hidden;

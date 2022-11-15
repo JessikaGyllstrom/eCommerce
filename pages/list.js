@@ -1,6 +1,5 @@
 import { request } from "../lib/datocms";
-import { useState } from 'react';
-import SmartTable from "./Table";
+import SmartTable from "../components/SmartTable";
 
 const HOMEPAGE_QUERY = `query  {
   allProducts {
