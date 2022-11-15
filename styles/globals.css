@@ -11,6 +11,9 @@ body {
   display: flex;
   justify-content: center;
 }
+.navbar {
+  color: white;
+}
 .smartTable-container {
   border: 1px solid lightgray;
   padding-top: 10px;

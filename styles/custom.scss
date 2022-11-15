@@ -1,5 +1,5 @@
 
-$color-blue: #39653c;
+$color-blue: #1e231e;
 
 .bg-blue { background-color: $color-blue }
 @import "../node_modules/bootstrap/scss/bootstrap";
@@ -9,4 +9,7 @@ body {
 }
 .container {
     display: flex;
+}
+.navbar a {
+    color: rgb(26, 25, 25);
 }

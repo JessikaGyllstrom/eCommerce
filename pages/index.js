@@ -1,5 +1,8 @@
 import { useQuerySubscription } from "react-datocms";
 import { request } from "../lib/datocms";
+import Image from "next/image";
+import leaves from "../assets/leaves.jpg"
+
 
 const HOMEPAGE_QUERY =  `query  {
         allBlogs {
@@ -31,6 +34,11 @@ export default function Home({ subscription }) {
   };
   return (
     <div>
+            <Image
+          src={leaves}
+          alt=""
+          cover
+       />
       <p>Connection status: {statusMessage[status]}</p>
       {error && (
         <div>
