@@ -1,6 +1,3 @@
-import Link from 'next/link';
-
-
 function Navbar() {
     return (
       <nav className="navbar navbar-expand-lg bg-blue position:fixed" style={{ padding: "1rem"}}>

@@ -23,23 +23,27 @@ export async function getStaticProps(context) {
 export default function Blog(props) {
     const { data } = props;
     const posts = data.allBlogs;
+    const author = data.author;
+
+    //console.log(posts)
+    console.log(data.author);
+
     return (
-        <div >
-            {posts.map((p) => (
-            <BlogPostPreview key={p.id} data={p} />
-            ))}
-        </div>
-    );
+      <div className="blogcontainer">
+    {posts.map((post, key) => (
+            <div key={data.id} >
+      <h4>{post.title}</h4>
+      <p>{post.article}</p>
+      <p>Created at: {post._createdAt}</p>
+      <p>Author: {JSON.stringify(author.name).replace(/"/g,"")}</p>
+
+      </div>
+      
+)
+)
 }
-const BlogPostPreview = (props) => {
-  const { data } = props;
-  return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-        <div style={{ maxWidth: "400px", marginBottom: "50px" }}>
-        <p>{data.title}</p>
-        <p>{data.article}</p>
-        <p>{data._createdAt}</p>
-        </div>
-    </div>
-  );
-};
+
+
+</div>
+    )
+}

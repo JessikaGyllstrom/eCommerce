@@ -1,11 +1,12 @@
 import { request } from "../lib/datocms";
 import Image from "next/image";
+import { useState } from "react";
 
 const HOMEPAGE_QUERY = `query  {
   allProducts {
     id
-    price
     name
+    price
     mainImage {
       responsiveImage {
         src
@@ -13,6 +14,7 @@ const HOMEPAGE_QUERY = `query  {
     }
   }
 }`
+
 export async function getStaticProps(context) {
   const data = await request({
       query: HOMEPAGE_QUERY,
@@ -22,46 +24,49 @@ export async function getStaticProps(context) {
       props: { data },
   };
 }
-export default function Items(props) {
+
+export default function Blog(props) {
+  
   const { data } = props;
   const posts = data.allProducts;
-  return (
-    <div>
-      <div>
-        {posts.map((p) => (
-          <Itemtable key={p.id} data={p} />        
-        ))}
-      </div>
-    </div>
-  );
+console.log(posts)
+const loaderProp =({ src, width, quality}) => {
+  return `${src}?w=${width}&q=${quality || 75}`
 }
-const loaderProp =({ src }) => {
-  return `${src}`;
-}
-const Itemtable = (props) => {
-const { data } = props;
-return (
-  <div >
-    <div style={{ display: "flex", justifyContent: "center", width: "100%"}}>
-      <div style={{ width: "40%"}}>
-        <div class="col">
-        </div>
-      <div >
-      <Image style={{ layout: "fill"}}
+  return (  
+    <div className="gallery">
+    {posts.map((data, key) => (
+       <div key={data.id} className="cardcontainer" >
+                <div className="card">
+                  <div className="card-top">
+      <Image
           src={data.mainImage.responsiveImage.src}
-          alt={data.mainImage.responsiveImage.src} 
-          height={300}   
-          width={300}  
-          loader={loaderProp}/>
-      </div>
-      <div class="col">
-      <div>
-        <p className="card-text">{data.name}</p><span></span>
-        <p className="card-text">Price: {data.price}</p>
-        </div>
-      </div>
+          alt={data.mainImage.responsiveImage.src}
+          height={300}
+          width={300}
+          loader={loaderProp} />
+          </div>
+          <div className="card-bottom">
+          <h4>{data.name}</h4>
+          <h6>Price: {data.price}$<span><a href="#" className="btn btn-dark">Add to cart</a>
+          </span></h6>
+          </div>
+          </div>
+
+
+
     </div>
-    </div>
-  </div>
+    )
+
+
   )
+    }
+  </div>
+)
 }
+
+
+
+
+
+

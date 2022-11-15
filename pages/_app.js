@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import '../styles/custom.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import   Head  from 'next/head';

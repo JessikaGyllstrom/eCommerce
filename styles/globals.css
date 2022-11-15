@@ -3,7 +3,6 @@ body {
   padding: 0;
   margin: 0;
   align-items: center;
-  background-color: aquamarine;
 }
 * {
   box-sizing: border-box;
@@ -11,4 +10,100 @@ body {
 .container {
   display: flex;
   justify-content: center;
+}
+.smartTable-container {
+  border: 1px solid lightgray;
+  padding-top: 10px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 5px 25px 0 rgba(60, 115, 29, 0.4);
+  position: relative;
+}
+
+.smartTable-tableContainer {
+  max-height: 83vh !important;
+  overflow: scroll;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.smartTable-tableContainer::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.smartTable-tableContainer::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(36, 112, 54, 0.5);
+  box-shadow: 0 0 1px rgba(6, 66, 247, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(6, 66, 247, 0.5);
+}
+.smartTable-table {
+  border-collapse: separate;
+  margin-bottom: 0 !important;
+}
+
+.smartTable-thead {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+.smartTable-pointer {
+  cursor: pointer;
+}
+
+.smartTable-loaderContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(127, 127, 127, 0.5);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.smartTable-noDataFound {
+  text-align: center;
+  padding: 30px;
+  margin-top: 15px;
+  background-color: lightgray;
+  border-radius: 5px;
+  width: 1200px;
+}
+.gallery {
+  padding: 2rem;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+.card {
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 10px 5px 5px rgb(115, 115, 115);
+  transition: transform .2s; 
+}
+.card-top {
+  display: flex;
+  justify-content: center;
+}
+.card-bottom {
+  margin-top: 0.3rem;
+}
+.card a{
+  float: right;
+}
+.card:hover {
+  transform: scale(1.05)
+}
+.blogcontainer {
+  padding: 5rem;
+  display: grid;
+  gap: 4rem;
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }

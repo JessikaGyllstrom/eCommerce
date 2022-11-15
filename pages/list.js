@@ -1,11 +1,13 @@
 import { request } from "../lib/datocms";
+import { useState } from 'react';
+import SmartTable from "./Table";
 
 const HOMEPAGE_QUERY = `query  {
   allProducts {
-    quantity
-    price
     id
+    price
     name
+    quantity
   }
 }`
 
@@ -18,40 +20,49 @@ export async function getStaticProps(context) {
       props: { data },
   };
 }
-export default function Products (props) {
+export default function Blog(props) {
+  const headCells = [
+    {
+      id: 'id',
+      numeric: false,
+      label: 'ArticleNumber',
+      width: 200,
+    },
+    {
+      id: 'name',
+      numeric: false,
+      label: 'Name',
+      width: 200,
+    },
+    {
+      id: 'price',
+      numeric: false,
+      label: 'Price',
+      width: 200,
+    },
+    {
+      id: 'quantity',
+      numeric: false,
+      label: 'Quantity',
+      width: 200,
+    },
+  ];  
   const { data } = props;
-  console.log(data);
   const posts = data.allProducts;
-  return (
+
+
+{posts.map((p) => (
+  <SmartTable key={p.id} data={p} headCells={headCells} />   
+))}
+  return (  
     <div>
-      <div>
-      {posts.map((p) => (
-          <ProductTable key={p.id} data={p} />        
-        ))}
-      </div>
+        <SmartTable data={posts} headCells={headCells} />   
     </div>
   );
 }
-const ProductTable = (props) => {
-  const {data} = props;
- return (
-  <div style={{ display: "flex", justifyContent: "center", padding: "0.2rem", alignItems: "center"}}>
-      <div style={{ width: "50%"}}>
-        <div className="row">
-        <div className="col">
-        Item: {data.id} 
-        </div>
-        <div className="col">
-        Name: {data.quantity}
-        </div>
-        <div className="col">
-        Price: {data.price}
-        </div>
-        <div className="col">
-        Quantity: {data.quantity}
-        </div>
-      </div>
-      </div>
-    </div>
- )
-}  
+
+
+
+
+
+
