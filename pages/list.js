@@ -48,11 +48,9 @@ export default function Blog(props) {
   ];  
   const { data } = props;
   const posts = data.allProducts;
-
-
-{posts.map((p) => (
-  <SmartTable key={p.id} data={p} headCells={headCells} />   
-))}
+  {posts.map((p) => (
+    <SmartTable key={p.id} data={p} headCells={headCells} />   
+  ))}
   return (  
     <div>
         <SmartTable data={posts} headCells={headCells} />   

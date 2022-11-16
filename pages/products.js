@@ -55,7 +55,7 @@ export default function Blog(props) {
                     data-item-price={data.price}
                 >
                     Add to Cart
-                </button>
+            </button>
             </span></h6>
           </div>
         </div>

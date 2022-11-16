@@ -12,7 +12,7 @@ function Document() {
         <script dangerouslySetInnerHTML={{
           __html: `
             window.SnipcartSettings = {
-                publicApiKey: "${process.env.NEXT_PUBLIC_SNIPCART_API_KEY}",
+                publicApiKey: "MTU3OWRlODEtYzY3Zi00MDcxLTg5NWUtMDUxMWQ0ZWE2YzllNjM4MDQxODY1MDY5NTQ0MzYw",
                 loadStrategy: "on-user-interaction",
                 modalStyle: "side",
             };
