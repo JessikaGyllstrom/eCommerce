@@ -8,7 +8,7 @@ const HOMEPAGE_QUERY = `query  {
       }
       author {
         name
-      }
+    }
 }`
 export async function getStaticProps(context) {
     const data = await request({
@@ -23,10 +23,6 @@ export default function Blog(props) {
     const { data } = props;
     const posts = data.allBlogs;
     const author = data.author;
-
-    //console.log(posts)
-    console.log(data.author);
-
     return (
       <div className="blogcontainer">
     {posts.map((post, key) => (
@@ -41,8 +37,6 @@ export default function Blog(props) {
 )
 )
 }
-
-
 </div>
     )
 }

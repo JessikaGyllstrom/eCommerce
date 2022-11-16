@@ -3,53 +3,32 @@ import { request } from "../lib/datocms";
 import Image from "next/image";
 import leaves from "../assets/leaves.jpg"
 
-
 const HOMEPAGE_QUERY =  `query  {
-        allBlogs {
-        title
-        id
+  startpage {
+    title
+    mainImage {
+      responsiveImage {
+        src
       }
-}` 
-export async function getStaticProps() {
-  const graphqlRequest = {
-    query: HOMEPAGE_QUERY,
-    variables: { limit: 10 },
-  };
+    }
+  }
+}`
+export async function getStaticProps(context) {
+  const data = await request({
+      query: HOMEPAGE_QUERY,
+      preview: context.preview,
+  });
   return {
-    props: {
-      subscription: {
-        ...graphqlRequest,
-        initialData: await request(graphqlRequest),
-        token: process.env.NEXT_DATOCMS_API_TOKEN,
-      },
-    },
+  props: { data },
   };
 }
-export default function Home({ subscription }) {
-  const { data, error, status } = useQuerySubscription(subscription);
-  const statusMessage = {
-    connecting: 'Connecting to DatoCMS...',
-    connected: 'Connected to DatoCMS, receiving live updates!',
-    closed: 'Connection closed',
-  };
+export default function Index(props) {
+  const { data } = props;
+  const posts = data.startpage;
+
   return (
-    <div>
-            <Image
-          src={leaves}
-          alt=""
-          cover
-       />
-      <p>Connection status: {statusMessage[status]}</p>
-      {error && (
-        <div>
-          <h1>Error: {error.code}</h1>
-          <div>{error.message}</div>
-          {error.response && (
-            <pre>{JSON.stringify(error.response, null, 2)}</pre>
-          )}
-        </div>
-      )}
+    <div className="homecontainer">
+      <h1>{posts.title}!</h1>
     </div>
   )
- } 
-
+}

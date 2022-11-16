@@ -13,11 +13,26 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <link rel="preconnect" href="https://app.Snipcart.com" />
+        <link rel="preconnect" href="https://cdn.Snipcart.com" />
+        <link 
+          rel="stylesheet" 
+          href="https://cdn.Snipcart.com/themes/v3.2.1/default/Snipcart.css" 
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Navbar/>
       <Component {...pageProps} />
       <Footer/>
+      <script
+        src="https://cdn.Snipcart.com/themes/v3.2.1/default/Snipcart.js"
+        async
+      />
+      <div
+        id="Snipcart"
+        data-api-key="MTU3OWRlODEtYzY3Zi00MDcxLTg5NWUtMDUxMWQ0ZWE2YzllNjM4MDQxODY1MDY5NTQ0MzYw"
+        hidden
+      ></div>
       </>
   )
 }
